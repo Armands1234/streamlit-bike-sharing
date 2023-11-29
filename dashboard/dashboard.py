@@ -6,7 +6,7 @@ import streamlit as st
 sns.set(style='dark')
 
 def get_total_count_by_hour_df(hour_df):
-  hour_count_df =  hour_df.groupby(by="hours").agg({"count_cr": ["sum"]})
+  hour_count_df =  hour_df.groupby(by="hour").agg({"count_cr": ["sum"]})
   return hour_count_df
 
 def count_by_day_df(day_df):
@@ -78,7 +78,7 @@ main_df_days = days_df[(days_df["dteday"] >= str(start_date)) &
 main_df_hour = hours_df[(hours_df["dteday"] >= str(start_date)) & 
                         (hours_df["dteday"] <= str(end_date))]
 
-hours_count_df = get_total_count_by_hour_df(main_df_hour)
+hour_count_df = get_total_count_by_hour_df(main_df_hour)
 day_df_count_2011 = count_by_day_df(main_df_days)
 reg_df = total_registered_df(main_df_days)
 cas_df = total_casual_df(main_df_days)
