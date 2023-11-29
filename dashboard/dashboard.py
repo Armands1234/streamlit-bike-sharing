@@ -78,7 +78,7 @@ main_df_days = days_df[(days_df["dteday"] >= str(start_date)) &
 main_df_hour = hours_df[(hours_df["dteday"] >= str(start_date)) & 
                         (hours_df["dteday"] <= str(end_date))]
 
-hour_count_df = get_total_count_by_hours_df(main_df_hour)
+hours_count_df = get_total_count_by_hour_df(main_df_hour)
 day_df_count_2011 = count_by_day_df(main_df_days)
 reg_df = total_registered_df(main_df_days)
 cas_df = total_casual_df(main_df_days)
