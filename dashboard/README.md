@@ -9,6 +9,7 @@ pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel
 
 ## Run steamlit app
 ```
+cd streamlit-bike-sharing/dashboard/
 streamlit run dashboard.py
 ```
 
