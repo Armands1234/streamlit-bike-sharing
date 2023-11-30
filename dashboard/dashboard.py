@@ -6,11 +6,8 @@ import streamlit as st
 sns.set(style='dark')
 
 def get_total_count_by_hour_df(hour_df):
-    # Proper indentation for the function
-    hour_count_df = hour_df.groupby(by="hour").agg({"count_cr": ["sum"]})
-    hour_count_df.columns = ["_".join(col).strip() for col in hour_count_df.columns.values]
-    return hour_count_df
-
+  hour_count_df =  hour_df.groupby(by="hours").agg({"count_cr": ["sum"]})
+  return hour_count_df
 
 def count_by_day_df(day_df):
     day_df_count_2011 = day_df.query(str('dteday >= "2011-01-01" and dteday < "2012-12-31"'))
@@ -82,7 +79,6 @@ main_df_hour = hours_df[(hours_df["dteday"] >= str(start_date)) &
                         (hours_df["dteday"] <= str(end_date))]
 
 hour_count_df = get_total_count_by_hour_df(main_df_hour)
-hour_count_df = get
 day_df_count_2011 = count_by_day_df(main_df_days)
 reg_df = total_registered_df(main_df_days)
 cas_df = total_casual_df(main_df_days)
@@ -172,4 +168,3 @@ ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',colors=["#D3D3D
 ax1.axis('equal')  
 
 st.pyplot(fig1)
-
