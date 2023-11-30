@@ -6,8 +6,12 @@ import streamlit as st
 sns.set(style='dark')
 
 def get_total_count_by_hour_df(hour_df):
-  hour_count_df =  hour_df.groupby(by="hour").agg({"count_cr": ["sum"]})
-  return hour_count_df
+    if "hour" in hour_df.columns:
+        hour_count_df = hour_df.groupby(by="hour").agg({"count_cr": ["sum"]})
+        return hour_count_df
+    else:
+        raise KeyError("Column 'hour' not found in the DataFrame.")
+
 
 def count_by_day_df(day_df):
     day_df_count_2011 = day_df.query(str('dteday >= "2011-01-01" and dteday < "2012-12-31"'))
