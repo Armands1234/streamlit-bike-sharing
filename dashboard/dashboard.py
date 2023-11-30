@@ -6,7 +6,7 @@ import streamlit as st
 sns.set(style='dark')
 
 def get_total_count_by_hour_df(hour_df):
-  hour_count_df =  hour_df.groupby(by="hours").agg({"count_cr": ["sum"]})
+  hour_count_df =  hour_df.groupby(by="hour").agg({"count_cr": ["sum"]})
   return hour_count_df
 
 def count_by_day_df(day_df):
