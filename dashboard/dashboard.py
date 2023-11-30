@@ -8,7 +8,8 @@ sns.set(style='dark')
 def get_total_count_by_hour_df(hour_df):
     # Proper indentation for the function
     hour_count_df = hour_df.groupby(by="hour").agg({"count_cr": ["sum"]})
-    hour_count_df.columns = ["_".join(col).strip() for col in hour_count_df.columns.values]
+    hour_count_df.columns = [f"{prefix}_{col[0].strip()}" for col in hour_count_df.columns]
+
     return hour_count_df
 
 
