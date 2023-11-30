@@ -9,12 +9,8 @@ def get_total_count_by_hour_df(hour_df):
     
  
 # Create hour_count_df inside the function
-    hour_count_df =  hour_df.groupby(by=
-    hour
-"hour").agg({"count_cr": ["sum"]})
+    hour_count_df =  hour_df.groupby(by=hour"hour").agg({"count_cr": ["sum"]})
     hour_count_df.columns = ["_".join(col).strip() for col in hour_count_df.columns.values]
-    
-   
 return hour_count_df
 
 def count_by_day_df(day_df):
